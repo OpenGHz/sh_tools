@@ -5,7 +5,7 @@ set -eo &> /dev/null
 [ "$1" = 'bug2' ] && conda install -y scipy && exit
 if [ "$1" = 'bug3' ];then
     sed -i 's/. ${MY_DIR}\/setup_python_env.sh/source ${MY_DIR}\/setup_python_env.sh/g' "${ISAAC_PATH}"/setup_conda_env.sh
-    sed -i 's|^\(.*SCRIPT_DIR=\).*|SCRIPT_DIR="$(pwd)"|' "${ISAAC_PATH}"/setup_python_env.sh
+    sed -i 's|^\(.*SCRIPT_DIR=\).*|SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" \&\& pwd )"|' "${ISAAC_PATH}"/setup_python_env.sh
     exit
 fi
 
