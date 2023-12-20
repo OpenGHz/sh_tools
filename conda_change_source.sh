@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 [ "$1" = 'check' ] && conda config --show channels && exit
 
 [ "$1" = 'restore' ] && conda config --remove-key channels && exit

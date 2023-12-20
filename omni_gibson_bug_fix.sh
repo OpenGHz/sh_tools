@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eo &> /dev/null
+set -e
 
 [ "$1" = 'bug0' ] && sed -i "s/PATH}\/python -c/PATH}\/python.sh -c/g" setup.sh && exit
 [ "$1" = 'bug2' ] && conda install -y scipy && exit
