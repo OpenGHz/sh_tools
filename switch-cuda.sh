@@ -24,7 +24,14 @@
 # version:  2018.1
 # date:     May 15, 2018
 
-# Fix PATH and LD_LIBRARY_PATH bug and sh-check warnings by GHz
+# GHz update: 2024.1.19
+# Fix PATH and LD_LIBRARY_PATH bug 
+# Remove sh-check warnings
+# Add -c to check current CUDA version
+# Add -p to permenantly change the CUDA version by modify the symbol link, 
+# if not given -i, then will change symbol link target of /etc/alternatives/cuda,
+# which is the target of /usr/local/cuda originally (make sure you haven't change it),
+# else will change symbol link target of /usr/local/cuda.
 
 set -e
 
@@ -38,6 +45,7 @@ fi
 # see current CUDA version
 if [[ ${1} = "-c" ]]; then
 	/usr/local/cuda/bin/nvcc -V
+    set +e
 	return
 fi
 
@@ -64,6 +72,17 @@ fi
 
 # the path of the installation to use
 cuda_path="${INSTALL_FOLDER}/cuda-${TARGET_VERSION}"
+
+# if given -p, then permanently switch to the requested CUDA version
+if [[ ${2} = "-p" ]]; then
+    if [ "${3}" = "-i" ]; then
+        sudo ln -sf "${cuda_path}" ${INSTALL_FOLDER}
+    else
+        sudo ln -sf "${cuda_path}" /etc/alternatives/cuda
+    fi
+    set +e
+    return
+fi
 
 # filter out those CUDA entries from the PATH that are not needed anymore
 new_path="${cuda_path}/bin"
