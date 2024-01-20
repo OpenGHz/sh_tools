@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # please modify the name and e-mail to yours
 git config --global user.name OpenGHz
 git config --global user.email 1352674740@qq.com
