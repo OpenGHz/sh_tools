@@ -2,15 +2,16 @@
 
 set -e
 
+# config the user name and e-mail
 # please modify the name and e-mail to yours
 git config --global user.name OpenGHz
 git config --global user.email 1352674740@qq.com
-# git config --global user.password "123456"
+# config the credential to store the password
+git config --global credential.helper store
 
 # show the configs
 git config user.name
 git config user.email
-# git config user.password
 
 # https://zhuanlan.zhihu.com/p/120862483
 
