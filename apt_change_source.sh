@@ -14,7 +14,7 @@ else
 fi
 
 if [ -z $1 ]; then
-    source_name="ustc.edu.cn"
+    source_name='ustc.edu.cn'
     echo "No parameter is passed, the source will be replaced with the default source of the University of Science and Technology of China."
 elif [ $1 == "thu" ]; then
     source_name=’tuna.tsinghua.edu.cn’
