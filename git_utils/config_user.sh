@@ -13,6 +13,9 @@ git config --global credential.helper store
 git config user.name
 git config user.email
 
+# show passwords
+# cat ~/.git-credentials
+
 # https://zhuanlan.zhihu.com/p/120862483
 
 # git config --global --unset user.name
