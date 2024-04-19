@@ -18,6 +18,12 @@ elif [ $1 = "get" ]; then
 elif [ $1 = "set" ]; then
     git config $2 http.proxy 127.0.0.1:7890
     git config $2 https.proxy 127.0.0.1:7890
+elif [ $1 = "alias" ]; then
+    echo "alias git_proxy_set='git config --global http.proxy 127.0.0.1:7890 && git config --global https.proxy 127.0.0.1:7890'" >> ~/."${SHELL##*/}"rc
+    echo "alias git_proxy_unset='git config --global --unset http.proxy && git config --global --unset https.proxy'" >> ~/."${SHELL##*/}"rc
+else
+    echo "Usage: $0 [unset|get|set] [global|local]"
+    exit 1
 fi
 
 # show the configs
