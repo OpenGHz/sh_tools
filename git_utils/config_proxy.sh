@@ -2,6 +2,11 @@
 
 set -e
 
+if [ -z $1 ]; then
+    echo "Usage: $0 [unset|get|set] [global|local]"
+    exit 1
+fi
+
 if [ $1 = "unset" ]; then
     git config $2 --unset http.proxy
     git config $2 --unset https.proxy
