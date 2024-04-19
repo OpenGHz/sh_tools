@@ -16,5 +16,5 @@ elif [ $1 = "set" ]; then
 fi
 
 # show the configs
-git config http.proxy
-git config https.proxy
+git config $2 http.proxy
+git config $2 https.proxy
