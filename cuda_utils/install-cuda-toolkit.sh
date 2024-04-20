@@ -5,4 +5,4 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-sudo -E apt-get -y install cuda-toolkit-${1}
+sudo -E apt -y install cuda-toolkit-${1}

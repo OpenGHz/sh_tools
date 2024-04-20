@@ -63,3 +63,5 @@ sudo apt-get update
 
 # 参考资料
 # https://mirrors.ustc.edu.cn/help/ubuntu.html
+
+# cd /etc/apt/sources.list.d/ && ls
