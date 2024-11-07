@@ -28,6 +28,8 @@ mv ${server_name} ${server_dir}/server
 mv code ~/.vscode-server/code-${commit_id}
 sed -i "s/\]/,\"$server_folder\"]/" ${servers_dir}/lru.json
 # chmod -R 700 /home/${user}/.vscode-server/
+rm -f ${server_name}.tar.gz
+rm -f ${cli_name}.tar.gz
 EOF
 
 # https://blog.csdn.net/qq_43623902/article/details/136258880
